@@ -1,0 +1,232 @@
+@import (reference) "color";
+@website-width: 960px;
+body {
+    padding: 0px;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-weight: 400;
+    font-family: "Open Sans", "sans-serif";
+}
+.card {
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.16), 0 1px 1px 0 rgba(0,0,0,.12);
+    -o-box-shadow: 0 1px 1px 0 rgba(0,0,0,.16), 0 1px 1px 0 rgba(0,0,0,.12);
+    -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,.16), 0 1px 1px 0 rgba(0,0,0,.12);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.16), 0 1px 1px 0 rgba(0,0,0,.12);
+}
+.post-title {
+    color: @lighten-dark;
+    font-size: 2rem;
+    &:hover {
+        color: @lighten-blue;
+    }
+}
+a {
+    text-decoration: none!important;
+}
+.url-link {
+    color: @lighten-blue;
+    display: inline-block;
+    padding: 0 5px;
+    &.normal {
+        color: @darken-dark;
+    }
+    &:hover {
+        color: @darken-blue;
+    }
+}
+.post-tag {
+    background: @tag-bg;
+    color: @lighten-dark;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: .75rem;
+}
+.post-tag:hover {
+    color: @lighten-blue;
+}
+.header {
+    height: 80px;
+    filter: blur(.4px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    box-sizing: content-box;
+    .container {
+        width: @website-width;
+        margin: auto;
+        .icons {
+            display: inline-block;
+            height: 48px;
+            width: 48px;
+            margin-top: 16px;
+            a {
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        .header-link {
+            display: inline-block;
+            float: right;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                    float: right;
+                    height: 80px;
+                    line-height: 80px;
+                    letter-spacing: 3px;
+                    padding: 0 20px;
+                    position: relative;
+                    a {
+                        color: @lighten-dark
+                    }
+                    &.active:after {
+                        content: '';
+                        display: inline-block;
+                        bottom: 0;
+                        width: 100%;
+                        left: 0;
+                        position: absolute;
+                        border-radius: 5px;
+                        background-color: @lighten-dark;
+                        height: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+.post-body {
+    width: 960px;
+    margin: 80px auto;
+    min-height: ~"calc(100vh - 300px)";
+    overflow-x: hidden;
+    .main-left {
+        width: 72%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        box-sizing: content-box;
+        border-right: 1px solid @tag-bg;
+        article.post {
+            padding: 0 30px 30px 0;
+            box-sizing: content-box;
+            header {
+                .info {
+                    font-size: .75rem;
+                    color: @grey;
+                }
+            }
+            .glance {
+                color: @lighten-dark;
+                line-height: 1.5;
+            }
+            footer {
+                font-size: .75rem;
+                color: @grey;
+            }
+        }
+        .pagination {
+            text-align: center;
+            > div {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 1rem;
+                &.text, > span, a {
+                    color: @lighten-dark;
+                    opacity: .5;
+                }
+                &.text {
+                    margin: 0 50px;
+                }
+                &:hover {
+                    a {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .main-right {
+        width: 26%;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        padding-left: 20px;
+        box-sizing: border-box;
+        .left-plugin {
+            .title {
+                margin: 1rem 0;
+                color: @grey;
+            }
+            ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                font-size: .75rem;
+                li {
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+                    a {
+                        color: @lighten-dark;
+                        &:hover {
+                            color: @lighten-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+footer.footer-info {
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    line-height: 60px;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    color: @lighten-dark;
+}
+//post content
+.post-content {
+    article.body {
+        a {
+            color: @lighten-blue;
+            &:hover {
+                color: @darken-blue;
+            }
+        }
+        code {
+            background-color: @tag-bg;
+        }
+        pre {
+            code {
+                display: block;
+                padding: 10px;
+                box-sizing: border-box;
+                line-height: 1.5;
+                border-top: 20px solid @grey;
+                border-radius: 3px;
+                position: relative;
+                &:extend(.card);
+                &:before {
+                    content: "code";
+                    position: absolute;
+                    top: -20px;
+                    left: 10px;
+                }
+            }
+        }
+        blockquote {
+            background: @tag-bg;
+            margin: 0;
+            padding: 1px 0 1px 20px;
+            border-left: 5px solid @lighten-dark;
+        }
+    }
+}

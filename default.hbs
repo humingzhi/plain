@@ -1,62 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{!-- Document Settings --}}
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{!-- Page Meta --}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />		
-    {{!-- Mobile Meta --}}
+    <meta name="description" content="{{meta_description}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{!-- Brand icon --}}
-    <link rel="shortcut icon" href="{{asset "images/favicon.ico"}}">
-	{{!-- Styles'n'Scripts --}}
-		<link href="{{asset "css/style.css"}}" rel="stylesheet">
-		<!--[if lt IE 9]>
-		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	{{!-- Ghost outputs important style and meta data with this tag --}}
+    <link rel="shortcut icon" href="{{asset "images/favicon.ico"}}"/>
+    <link href="{{asset "css/all.css"}}" rel="stylesheet" />
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
-	{{!-- The blog navigation links --}}
-   <header>
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="navbar-bg container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="iconfont icon-caidan1"></span>
-					</button>
-					{{#if @blog.logo}}
-						<a class="navbar-brand" href="{{@blog.url}}"><img src="{{@blog.logo}}"></a>
-					{{else}}
-						<a class="navbar-brand2" href="{{@blog.url}}">{{@blog.title}}</a>
-					{{/if}}
-				</div>
-				{{navigation}}
-			</div>
-		</nav>
-	</header>
-<div class="container">
-			<!-- 主体开始 -->
-	<main class="row main">
-		<!-- 文章栏开始 -->
-		{{{body}}}
-	</main>
-	<!-- 底部开始 -->
-	<footer class="col-md-12 footer-info">
-		Copyright &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> (Website  based on <a href="https://ghost.org">Ghost</a>, Themes <a href="https://github.com/weic96/We-Ghost">We-Ghost</a> & By: <a href="http://weic96.cn">Weic Ma</a> .)
-	</footer>
+<header class="header">
+    <div class="container">
+        <div class="icons">
+            {{#if @blog.logo}}
+                <a href="{{@blog.url}}"><img src="{{@blog.logo}}"></a>
+            {{/if}}
+        </div>
+        {{navigation}}
+    </div>
+</header>
+<div class="post-body">
+    {{{body}}}
 </div>
-	<a id="back-btn" href="javascript:;" ></a>
-    <script src={{asset "js/back-top.js"}}></script>
-	<script src={{asset "js/jquery.min.js"}}></script>
-	<script src={{asset "js/bootstrap.min.js"}}></script>
-	<script src={{asset "/js/instantclick.min.js"}} data-no-instant></script>
-	<script data-no-instant>InstantClick.init();</script>
-	{{!-- Ghost outputs important scripts and data with this tag --}}
- {{ghost_foot}}
+<footer class="col-md-12 footer-info">
+    Copyright &copy; {{date format="YYYY"}} <a href="{{@blog.url}}" class="url-link normal">{{@blog.title}}</a>（Website based on <a
+    href="https://ghost.org" class="url-link normal">Ghost</a>, Themes <a class="url-link normal" href="https://github.com/humingzhi/plain">plain</a>）
+</footer>
+{{ghost_foot}}
+<script type="text/javascript" src="{{asset "js/prepare.js"}}"></script>
 </body>
 </html>

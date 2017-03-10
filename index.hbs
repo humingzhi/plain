@@ -1,54 +1,26 @@
 {{!< default}}
-<div class="col-md-8 index-post">
-		{{! The tag below includes the post loop - partials/loop.hbs }}
-		{{> "loop"}}
-		{{pagination}}
+<div class="main-left">
+    {{! The tag below includes the post loop - partials/loop.hbs }}
+    {{> "loop"}}
+    {{pagination}}
 </div>
-<div class="col-md-4">
-					<div class="sidebar-about index-sidebar">
-						<h3 class="sidebar-title">About</h3>
-						<hr>
-						<div class="sidebar-about-logo">
-							<img src="{{@blog.logo}}">
-						</div>
-{{!-- 这里是关于我的地盘   (about me) --}}
-						<p>About me? Well, my name is Weic. is a variety of professional young man (small? Joke), Web developer? Businessman? Crazy game player? Well, you know all about it!</p>
-					</div>
-					<div class="index-sidebar sidebar-social-cintact">
-						<h3>Social contact</h3>
-						<hr>
-{{!-- 这里是社交按钮的地盘   (Social contact) --}}
-						<a href=""><i class="iconfont icon-github1"></i></a>
-						<a href=""><i class="iconfont icon-coding"></i></a>
-						<a href=""><i class="iconfont icon-weixin"></i></a>
-						<a href=""><i class="iconfont icon-qqkongjian"></i></a>
-						<a href=""><i class="iconfont icon-zhihu"></i></a>
-						<a href=""><i class="iconfont icon-youxiang1"></i></a>
-					</div>
-					<div class="index-sidebar sidebar-follow">
-						<h3>Follow</h3>
-						<hr>
-{{!-- 这里是关注按钮的地盘   (follow me) --}}
-						<a href=""><i class="iconfont icon-weibo1"></i></a>
-						<a href=""><i class="iconfont icon-txweibo"></i></a>
-						<a href=""><i class="iconfont icon-tieba1"></i></a>
-						<a href=""><i class="iconfont icon-youku"></i></a>
-						<a href=""><i class="iconfont icon-youtube1"></i></a>
-						<a href=""><i class="iconfont icon-facebook-copy"></i></a>
-						<a href=""><i class="iconfont icon-tuite"></i></a>
-						<a href=""><i class="iconfont icon-google1"></i></a>
-					</div>
-					<div class="index-sidebar sidebar-tag">
-						<h3>Tags</h3>
-						<hr>
-						{{tag_cloud limit="all"}}
-					</div>
-					<div class="index-sidebar sidebar-link">
-						<h3>Link</h3>
-						<hr>
-						<ul>
-{{!-- 这里是友情链接的地盘   (Links) --}}
-							<li><a href=""><i class="iconfont icon-link"></i> Link Name</a></li>
-						</ul>
-					</div>
-				</div>
+<div class="main-right">
+    <div class="left-plugin">
+        <p class="title">Recent post</p>
+        {{#get "posts" limit="8" order="created_at desc"}}
+            <ol>
+                {{#foreach posts}}
+                    <li><a href="{{url}}">{{title}}</a></li>
+                {{/foreach}}
+            </ol>
+        {{/get}}
+    </div>
+    <div class="left-plugin">
+        <p class="title">Tags</p>
+        {{#get "tags" order="count.posts desc"}}
+            {{#foreach tags}}
+                <a class="post-tag" href="/tag/{{slug}}">{{name}}</a>
+            {{/foreach}}
+        {{/get}}
+    </div>
+</div>

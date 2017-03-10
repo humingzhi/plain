@@ -1,44 +1,12 @@
 {{!< default}}
-<div class="col-md-12 post-page">
+<div class="post-content">
 {{#post}}
-<article class="{{post_class}}  post-page-header">
-						<h3>{{title}}</h3>
-					</article>
-					<article class="post-page-main">
-						<header>
-							<hr>
-						</header>
-						<section>
-							{{content}}
-						</section>
-						<footer>
-							<hr>
-							<time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
-						</footer>
-					</article>
-					
-					<div class="post-page-share">
-						<h3>
-						Share this post on
-						</h3>
-						<hr>
-						<a target="_blank" href="http://v.t.sina.com.cn/share/share.php?title={{encode title}}&amp;url={{url absolute="true"}}"><i class="iconfont icon-weibo"></i></a>
-						<a href=""><i class="iconfont icon-txwb2"></i></a>
-						<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"><i class="iconfont icon-facebook"></i></a>
-						<a target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><i class="iconfont icon-google"></i></a>
-					</div>
-					<div class="post-page-readmore">
-						<h3>
-						Recommended reading
-						</h3>
-						<hr>
-						{{#next_post}}
-							<p>Last one : &nbsp;&nbsp;<a href="{{url}}">{{title}}</a></p>
-						{{/next_post}}
-						{{#prev_post}}
-							<p>Next article : &nbsp;&nbsp;<a href="{{url}}">{{title}}</a></p>
-						{{/prev_post}}
-					</div>
-				</div>
+    <p class="post-title">{{title}}</p>
+    <article class="body">
+        <section>{{content}}</section>
+        <p>
+            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY/MM/DD"}}</time>
+        </p>
+    </article>
 {{/post}}
-					
+</div>
